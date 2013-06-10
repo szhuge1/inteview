@@ -1,5 +1,4 @@
 
-
 /*Question: 
  *Implement an algorithm to determine if a string has all unique characters 
  *What if you can not use additional data structures?
@@ -20,7 +19,6 @@ public class Q1_1 {
 		
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i);
-			System.out.println(val);
 			
 			if(char_set[val]) return false;
 			char_set[val] = true;
