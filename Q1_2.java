@@ -1,47 +1,33 @@
-
-
-/*Question: 
- *Implement an algorithm to determine if a string has all unique characters 
- *What if you can not use additional data structures?
+/* Question:
+ * Write code to reverse a C-Style String 
+ * (C-String means that “abcd” is represented as five characters, including the null character )
  */
 
 /* Ans:
- * For simplicity, assume char set is ASCII (if not, we need to increase the storage size 
- * The rest of the logic would be the same) NOTE: This is a great thing to point out to your interviewer!
+ * This is a classic interview question The only “gotcha” is to try to do it in place, 
+ * and to be care- ful for the null character
  */
 
 package array_string;
 
-public class Q1_1 {
-
-  public static boolean isUniqueChars2(String str){
-		
-		boolean[] char_set = new boolean[256];
-		
-		for (int i = 0; i < str.length(); i++) {
-			int val = str.charAt(i);
-			System.out.println(val);
-			
-			if(char_set[val]) return false;
-			char_set[val] = true;
-		}
-		
-		return true;
-	}
+public class Q1_2 {
 	
-	public static boolean isUniqueChars(String str) {
-		
-		int checker = 0;
-		
-		for(int i=0 ; i<str.length() ; i++){
-			int val = str.charAt(i) - 'a';
-			
-			if ((checker & (1 << val)) > 0) return false;
-			System.out.println(1<<val);
-			checker |= (1 << val);
-			System.out.println("checker: " + checker);
-		}
-		
-		return true;
-	}
+    static void reverse1(char[] target){
+
+        int head = 0;
+        int tail = target.length - 2;
+        while(head < tail){
+            char temp = target[head];
+            target[head] = target[tail];
+            target[tail] = temp;
+            head++;
+            tail--;
+        }
+   }
+
+   public static void main(String[] args){
+        char [] test = {'1','2','3','3','1','5','\0'};
+        reverse1(test);
+        System.out.println(test);
+   }
 }
