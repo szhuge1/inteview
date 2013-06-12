@@ -8,6 +8,7 @@ public class Q2_2 {
 
 
   public static LinkedListNode nthToLast1(LinkedListNode head, int n){
+
 		if (head == null || n < 1) {
 			return null;
 		}
@@ -19,8 +20,10 @@ public class Q2_2 {
 			}
 			p2 = p2.next; 
 		}
-		while (p2.next != null) { p1 = p1.next;
-		p2 = p2.next; }
+		while (p2.next != null) { 
+			p1 = p1.next;
+			p2 = p2.next; 
+		}
 		return p1;
 	}
 }
